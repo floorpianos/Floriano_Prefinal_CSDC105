@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <%- include('../partials/head.ejs') %>
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <div class="blogs">
+        <div class="blogprebox">
+        <h2>Welcome to my blog!</h2>
+        <p>Where only the most interesting of content shall be found here that may leave one questioning life, universe, and everything and how the number 42 is related</p>
+        <br>
+        <br>
+        </div>
+        <div class="blogbox">
+        <h2>All Blogs</h2>
+        <% if (blogs.length > 0) { %>
+            <% blogs.forEach(blog => {  %>
+                <a class="single" href="/blogs/<%= blog._id %>">
+                <h3 class="title"><%= blog.title %></h3>
+                <p class="snippet"><%= blog.snippet %></p>
+                </a>
+            <%  }) %>
+        <%  } else {%>
+            <p>NEIN</p>
+        <% } %>
+        </div>
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>
